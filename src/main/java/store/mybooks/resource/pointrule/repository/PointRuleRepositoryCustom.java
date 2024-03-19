@@ -51,7 +51,7 @@ public interface PointRuleRepositoryCustom {
      * @param pointRuleName 포인트 규정 명
      * @return point rule
      */
-    PointRule findPointRuleByPointRuleName(String pointRuleName);
+    Optional<PointRule> findPointRuleByPointRuleName(String pointRuleName);
 
     /**
      * methodName : getPointRuleResponsePage<br>

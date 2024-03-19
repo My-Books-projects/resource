@@ -18,6 +18,12 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class BookOrderCreateResponse {
-    private String statusName;
+    private String orderStatus;
+    private String number;
+    private Integer totalCost;
+    private Boolean isCouponUsed;
 
+    public void updateIsCouponUsed(Boolean isCouponUsed) {
+        this.isCouponUsed = isCouponUsed;
+    }
 }

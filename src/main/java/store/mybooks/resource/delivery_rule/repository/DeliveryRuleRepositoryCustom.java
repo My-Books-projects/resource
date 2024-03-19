@@ -1,6 +1,7 @@
 package store.mybooks.resource.delivery_rule.repository;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.repository.NoRepositoryBean;
 import store.mybooks.resource.delivery_rule.dto.response.DeliveryRuleResponse;
 
@@ -18,4 +19,6 @@ import store.mybooks.resource.delivery_rule.dto.response.DeliveryRuleResponse;
 @NoRepositoryBean
 public interface DeliveryRuleRepositoryCustom {
     List<DeliveryRuleResponse> getDeliveryRuleList();
+
+    Optional<DeliveryRuleResponse> getDeliveryRuleByName(String name);
 }

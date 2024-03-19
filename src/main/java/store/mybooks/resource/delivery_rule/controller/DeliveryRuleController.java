@@ -6,14 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import store.mybooks.resource.delivery_rule.dto.request.DeliveryRuleModifyRequest;
 import store.mybooks.resource.delivery_rule.dto.request.DeliveryRuleRegisterRequest;
 import store.mybooks.resource.delivery_rule.dto.response.DeliveryRuleResponse;
@@ -37,6 +30,21 @@ import store.mybooks.resource.error.RequestValidationFailedException;
 public class DeliveryRuleController {
 
     private final DeliveryRuleService deliveryRuleService;
+
+    /**
+     * methodName : getDeliveryRuleByName<br>
+     * author : minsu11<br>
+     * description : get 요청 으로 들어온 {@code name}에 대한 조회 데이터 응답.<br>
+     * <br>
+     *
+     * @param name 조회할 이름
+     * @return the delivery rule by name
+     */
+    @GetMapping("/name/{name}")
+    public ResponseEntity<DeliveryRuleResponse> getDeliveryRuleByName(@PathVariable("name") String name) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(deliveryRuleService.getDeliveryRuleByName(name));
+    }
 
 
     /**

@@ -14,7 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import store.mybooks.resource.book_return.entity.BookReturn;
-import store.mybooks.resource.order_detail.entity.OrderDetail;
+import store.mybooks.resource.orderdetail.entity.OrderDetail;
 
 /**
  * packageName    : store.mybooks.resource.return_detail.entity

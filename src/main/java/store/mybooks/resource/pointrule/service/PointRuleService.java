@@ -97,7 +97,8 @@ public class PointRuleService {
                 .orElseThrow(PointRuleNameNotExistException::new);
         PointRule pointRule = new PointRule(pointRuleName, request.getRate(), request.getCost());
 
-        PointRule beforePointRule = pointRuleRepository.findPointRuleByPointRuleName(name);
+        PointRule beforePointRule = pointRuleRepository.findPointRuleByPointRuleName(name)
+                .orElse(null);
         if (Objects.nonNull(beforePointRule)) {
             beforePointRule.modifyPointRuleIsAvailable(false);
         }

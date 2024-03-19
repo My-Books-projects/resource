@@ -124,6 +124,21 @@ public class UserCouponService {
     }
 
     /**
+     * methodName : getUserCoupon <br>
+     * author : minsu11 <br>
+     * description : id로 쿠폰 조회<br>
+     *
+     * @param userCouponId the coupon user id
+     * @return the user coupon
+     */
+    @Transactional(readOnly = true)
+    public UserCouponGetResponseForOrderQuerydsl getUserCoupon(Long userCouponId) {
+        return userCouponRepository.getUserCouponResponse(userCouponId)
+                .orElseThrow(() -> new UserCouponNotExistsException(userCouponId));
+    }
+
+
+    /**
      * methodName : createUserCoupon <br>
      * author : damho-lee <br>
      * description : 회원 쿠폰 생성.<br>

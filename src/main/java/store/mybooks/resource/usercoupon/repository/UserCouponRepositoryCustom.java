@@ -1,6 +1,7 @@
 package store.mybooks.resource.usercoupon.repository;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.NoRepositoryBean;
@@ -62,4 +63,14 @@ public interface UserCouponRepositoryCustom {
      * @return list
      */
     List<UserCouponGetResponseForOrderQuerydsl> getUsableTotalCoupons(Long userId);
+
+    /**
+     * methodName : getUserCouponResponse <br>
+     * author : minsu11 <br>
+     * description : id로 쿠폰 조회.<br>
+     *
+     * @param userCouponId the user coupon id
+     * @return the user coupon response
+     */
+    Optional<UserCouponGetResponseForOrderQuerydsl> getUserCouponResponse(Long userCouponId);
 }

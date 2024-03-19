@@ -1,5 +1,6 @@
 package store.mybooks.resource.bookorder.repository;
 
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import store.mybooks.resource.bookorder.entity.BookOrder;
 
@@ -15,4 +16,5 @@ import store.mybooks.resource.bookorder.entity.BookOrder;
  * 3/2/24        minsu11       최초 생성<br>
  */
 public interface BookOrderRepository extends JpaRepository<BookOrder, Long>, BookOrderRepositoryCustom {
+    Optional<BookOrder> findByNumber(String number);
 }

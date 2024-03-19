@@ -131,7 +131,7 @@ class PointRuleServiceTest {
         PointRuleCreateResponse expected = new PointRuleCreateResponse("test1", 10, null);
 
         when(pointRuleNameRepository.findById(anyString())).thenReturn(Optional.of(pointRuleName));
-        when(pointRuleRepository.findPointRuleByPointRuleName(anyString())).thenReturn(pointRule);
+        when(pointRuleRepository.findPointRuleByPointRuleName(anyString())).thenReturn(Optional.of(pointRule));
         when(pointRuleRepository.save(any(PointRule.class))).thenReturn(pointRule);
         when(pointRuleMapper.mapToPointRuleCreateResponse(any())).thenReturn(expected);
 

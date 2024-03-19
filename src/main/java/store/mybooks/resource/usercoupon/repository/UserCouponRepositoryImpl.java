@@ -4,6 +4,7 @@ import com.querydsl.core.types.Projections;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -169,5 +170,27 @@ public class UserCouponRepositoryImpl extends QuerydslRepositorySupport implemen
                         coupon.startDate,
                         coupon.endDate))
                 .fetch();
+    }
+
+    @Override
+    public Optional<UserCouponGetResponseForOrderQuerydsl> getUserCouponResponse(Long userCouponId) {
+        QCoupon coupon = QCoupon.coupon;
+        QUserCoupon userCoupon = QUserCoupon.userCoupon;
+        return Optional.ofNullable(
+                from(userCoupon)
+                        .select(Projections.constructor(UserCouponGetResponseForOrderQuerydsl.class,
+                                userCoupon.id,
+                                coupon.name,
+                                coupon.orderMin,
+                                coupon.discountCost,
+                                coupon.maxDiscountCost,
+                                coupon.discountRate,
+                                coupon.isRate,
+                                coupon.startDate,
+                                coupon.endDate)
+                        )
+                        .where(userCoupon.id.eq(userCouponId))
+                        .fetchOne()
+        );
     }
 }

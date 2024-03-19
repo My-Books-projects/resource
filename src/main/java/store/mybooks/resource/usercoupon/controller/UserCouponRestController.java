@@ -9,19 +9,13 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import store.mybooks.resource.config.HeaderProperties;
 import store.mybooks.resource.error.RequestValidationFailedException;
 import store.mybooks.resource.usercoupon.dto.request.UserCouponCreateRequest;
 import store.mybooks.resource.usercoupon.dto.response.UserCouponGetResponseForMyPage;
 import store.mybooks.resource.usercoupon.dto.response.UserCouponGetResponseForOrder;
+import store.mybooks.resource.usercoupon.dto.response.UserCouponGetResponseForOrderQuerydsl;
 import store.mybooks.resource.usercoupon.service.UserCouponService;
 
 /**
@@ -147,5 +141,21 @@ public class UserCouponRestController {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .build();
+    }
+
+    /**
+     * methodName : getUserCoupon <br>
+     * author : minsu11 <br>
+     * description : id로 쿠폰 조회.<br>
+     *
+     * @param couponUserId the coupon user id
+     * @return the user coupon
+     */
+    @GetMapping("/{couponUserId}")
+    public ResponseEntity<UserCouponGetResponseForOrderQuerydsl> getUserCoupon(@PathVariable Long couponUserId) {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(userCouponService.getUserCoupon(couponUserId));
+
     }
 }

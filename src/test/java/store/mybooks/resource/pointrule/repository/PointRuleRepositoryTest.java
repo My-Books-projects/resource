@@ -75,7 +75,7 @@ class PointRuleRepositoryTest {
     void givenPointRuleName_whenFindPointRuleByPointRuleName_thenReturnPointRule() {
         PointRuleName pointRuleName = new PointRuleName("test1");
         PointRule expected = new PointRule(1, pointRuleName, 10, null, LocalDate.of(1212, 12, 12), true);
-        PointRule actual = pointRuleRepository.findPointRuleByPointRuleName("test1");
+        PointRule actual = pointRuleRepository.findPointRuleByPointRuleName("test1").orElse(null);
 
         Assertions.assertEquals(expected.getRate(), actual.getRate());
     }

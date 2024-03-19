@@ -458,11 +458,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_도서_저자_api">9. 도서-저자 API</a></li>
 <li><a href="#_도서_카테고리_api">10. 도서-카테고리 API</a></li>
 <li><a href="#_도서_태그_api">11. 도서-태그 API</a></li>
-<li><a href="#_도서_좋아요_api">12. 도서-좋아요 API</a></li>
+<li><a href="#_도서_좋아요_api">12. 도서-좋아요 API</a>
+<ul class="sectlevel2">
+<li><a href="#_도서_좋아요_요청">12.1. 도서 좋아요 요청</a>
+<ul class="sectlevel3">
+<li><a href="#_http_request">12.1.1. HTTP Request</a></li>
+<li><a href="#_http_response">12.1.2. HTTP Response</a></li>
+<li><a href="#_request_headers">12.1.3. Request Headers</a></li>
+<li><a href="#_path_parameters">12.1.4. Path Parameters</a></li>
 </ul>
 </li>
-<li><a href="#_review">Review</a>
-<ul class="sectlevel1">
+<li><a href="#_사용자가_좋아요한_도서_조회">12.2. 사용자가 좋아요한 도서 조회</a>
+<ul class="sectlevel3">
+<li><a href="#_http_request_2">12.2.1. HTTP Request</a></li>
+<li><a href="#_http_response_2">12.2.2. HTTP Response</a></li>
+<li><a href="#_request_headers_2">12.2.3. Request Headers</a></li>
+<li><a href="#_request_parameters">12.2.4. Request Parameters</a></li>
+<li><a href="#_response_fields">12.2.5. Response Fields</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_리뷰_api">13. 리뷰 API</a></li>
 </ul>
 </li>
@@ -526,26 +542,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_저자_추가">32.1. 저자 추가</a>
 <ul class="sectlevel3">
-<li><a href="#_http_request">32.1.1. HTTP Request</a></li>
-<li><a href="#_http_response">32.1.2. HTTP Response</a></li>
+<li><a href="#_http_request_3">32.1.1. HTTP Request</a></li>
+<li><a href="#_http_response_3">32.1.2. HTTP Response</a></li>
 <li><a href="#_requestfields">32.1.3. RequestFields</a></li>
 <li><a href="#_responsefields">32.1.4. ResponseFields</a></li>
 </ul>
 </li>
 <li><a href="#_저자_수정">32.2. 저자 수정</a>
 <ul class="sectlevel3">
-<li><a href="#_http_request_2">32.2.1. HTTP Request</a></li>
-<li><a href="#_http_response_2">32.2.2. HTTP Response</a></li>
+<li><a href="#_http_request_4">32.2.1. HTTP Request</a></li>
+<li><a href="#_http_response_4">32.2.2. HTTP Response</a></li>
 <li><a href="#_pathparameters">32.2.3. PathParameters</a></li>
 <li><a href="#_responsefields_2">32.2.4. ResponseFields</a></li>
 </ul>
 </li>
 <li><a href="#_저자_삭제">32.3. 저자 삭제</a>
 <ul class="sectlevel3">
-<li><a href="#_http_request_3">32.3.1. HTTP Request</a></li>
-<li><a href="#_http_response_3">32.3.2. HTTP Response</a></li>
+<li><a href="#_http_request_5">32.3.1. HTTP Request</a></li>
+<li><a href="#_http_response_5">32.3.2. HTTP Response</a></li>
 <li><a href="#_pathparameters_2">32.3.3. PathParameters</a></li>
-<li><a href="#_responsefields_3">32.3.4. ResponseFields</a></li>
 </ul>
 </li>
 </ul>
@@ -554,7 +569,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_point">Point</a>
 <ul class="sectlevel1">
-<li><a href="#_포인트_규정_api">33. 포인트 규정 API</a></li>
+<li><a href="#_포인트_규정_api">33. 포인트 규정 API</a>
+<ul class="sectlevel2">
+<li><a href="#_규정_추가">33.1. 규정 추가</a>
+<ul class="sectlevel3">
+<li><a href="#_http_response_6">33.1.1. HTTP Response</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#_포인트_규정명_api">34. 포인트 규정명 API</a></li>
 <li><a href="#_포인트_내역_api">35. 포인트 내역 API</a></li>
 </ul>
@@ -639,10 +662,77 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_도서_좋아요_api"><a class="anchor" href="#_도서_좋아요_api"></a><a class="link" href="#_도서_좋아요_api">12. 도서-좋아요 API</a></h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_도서_좋아요_요청"><a class="anchor" href="#_도서_좋아요_요청"></a><a class="link" href="#_도서_좋아요_요청">12.1. 도서 좋아요 요청</a></h3>
+<div class="sect3">
+<h4 id="_http_request"><a class="anchor" href="#_http_request"></a><a class="link" href="#_http_request">12.1.1. HTTP Request</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-update/http-request.adoc[]</p>
 </div>
 </div>
-<h1 id="_review" class="sect0"><a class="anchor" href="#_review"></a><a class="link" href="#_review">Review</a></h1>
+<div class="sect3">
+<h4 id="_http_response"><a class="anchor" href="#_http_response"></a><a class="link" href="#_http_response">12.1.2. HTTP Response</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-update/http-response.adoc[]</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_headers"><a class="anchor" href="#_request_headers"></a><a class="link" href="#_request_headers">12.1.3. Request Headers</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-update/request-headers.adoc[]</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_path_parameters"><a class="anchor" href="#_path_parameters"></a><a class="link" href="#_path_parameters">12.1.4. Path Parameters</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-update/path-parameters.adoc[]</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_사용자가_좋아요한_도서_조회"><a class="anchor" href="#_사용자가_좋아요한_도서_조회"></a><a class="link" href="#_사용자가_좋아요한_도서_조회">12.2. 사용자가 좋아요한 도서 조회</a></h3>
+<div class="sect3">
+<h4 id="_http_request_2"><a class="anchor" href="#_http_request_2"></a><a class="link" href="#_http_request_2">12.2.1. HTTP Request</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-getBookListByUserId/http-request.adoc[]</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_http_response_2"><a class="anchor" href="#_http_response_2"></a><a class="link" href="#_http_response_2">12.2.2. HTTP Response</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-getBookListByUserId/http-response.adoc[]</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_headers_2"><a class="anchor" href="#_request_headers_2"></a><a class="link" href="#_request_headers_2">12.2.3. Request Headers</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-getBookListByUserId/request-headers.adoc[]</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_parameters"><a class="anchor" href="#_request_parameters"></a><a class="link" href="#_request_parameters">12.2.4. Request Parameters</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-getBookListByUserId/request-parameters.adoc[]</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_response_fields"><a class="anchor" href="#_response_fields"></a><a class="link" href="#_response_fields">12.2.5. Response Fields</a></h4>
+<div class="paragraph">
+<p>Unresolved directive in book-guide.adoc - include::/Users/minsu/Desktop/resource/target/generated-snippets/bookLike-getBookListByUserId/response-fields.adoc[]
+= Review
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectnums:
+:sectlinks:
+:sectanchors:</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_리뷰_api"><a class="anchor" href="#_리뷰_api"></a><a class="link" href="#_리뷰_api">13. 리뷰 API</a></h2>
 <div class="sectionbody">
@@ -788,7 +878,7 @@ Host: localhost:8080</code></pre>
 <div class="sect2">
 <h3 id="_저자_추가"><a class="anchor" href="#_저자_추가"></a><a class="link" href="#_저자_추가">32.1. 저자 추가</a></h3>
 <div class="sect3">
-<h4 id="_http_request"><a class="anchor" href="#_http_request"></a><a class="link" href="#_http_request">32.1.1. HTTP Request</a></h4>
+<h4 id="_http_request_3"><a class="anchor" href="#_http_request_3"></a><a class="link" href="#_http_request_3">32.1.1. HTTP Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /api/authors HTTP/1.1
@@ -802,7 +892,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="_http_response"><a class="anchor" href="#_http_response"></a><a class="link" href="#_http_response">32.1.2. HTTP Response</a></h4>
+<h4 id="_http_response_3"><a class="anchor" href="#_http_response_3"></a><a class="link" href="#_http_response_3">32.1.2. HTTP Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 201 Created
@@ -875,7 +965,7 @@ Content-Length: 47
 <div class="sect2">
 <h3 id="_저자_수정"><a class="anchor" href="#_저자_수정"></a><a class="link" href="#_저자_수정">32.2. 저자 수정</a></h3>
 <div class="sect3">
-<h4 id="_http_request_2"><a class="anchor" href="#_http_request_2"></a><a class="link" href="#_http_request_2">32.2.1. HTTP Request</a></h4>
+<h4 id="_http_request_4"><a class="anchor" href="#_http_request_4"></a><a class="link" href="#_http_request_4">32.2.1. HTTP Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /api/authors/1 HTTP/1.1
@@ -888,7 +978,7 @@ Host: localhost:8080
 </div>
 </div>
 <div class="sect3">
-<h4 id="_http_response_2"><a class="anchor" href="#_http_response_2"></a><a class="link" href="#_http_response_2">32.2.2. HTTP Response</a></h4>
+<h4 id="_http_response_4"><a class="anchor" href="#_http_response_4"></a><a class="link" href="#_http_response_4">32.2.2. HTTP Response</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
@@ -954,7 +1044,7 @@ Content-Length: 63
 <div class="sect2">
 <h3 id="_저자_삭제"><a class="anchor" href="#_저자_삭제"></a><a class="link" href="#_저자_삭제">32.3. 저자 삭제</a></h3>
 <div class="sect3">
-<h4 id="_http_request_3"><a class="anchor" href="#_http_request_3"></a><a class="link" href="#_http_request_3">32.3.1. HTTP Request</a></h4>
+<h4 id="_http_request_5"><a class="anchor" href="#_http_request_5"></a><a class="link" href="#_http_request_5">32.3.1. HTTP Request</a></h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /api/authors/1 HTTP/1.1
@@ -964,14 +1054,10 @@ Host: localhost:8080</code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_http_response_3"><a class="anchor" href="#_http_response_3"></a><a class="link" href="#_http_response_3">32.3.2. HTTP Response</a></h4>
+<h4 id="_http_response_5"><a class="anchor" href="#_http_response_5"></a><a class="link" href="#_http_response_5">32.3.2. HTTP Response</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 21
-
-{"name":"authorName"}</code></pre>
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 204 No Content</code></pre>
 </div>
 </div>
 </div>
@@ -997,30 +1083,6 @@ Content-Length: 21
 </tbody>
 </table>
 </div>
-<div class="sect3">
-<h4 id="_responsefields_3"><a class="anchor" href="#_responsefields_3"></a><a class="link" href="#_responsefields_3">32.3.4. ResponseFields</a></h4>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Path</th>
-<th class="tableblock halign-left valign-top">Type</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">삭제된 도서명</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 </div>
 </div>
@@ -1028,7 +1090,21 @@ Content-Length: 21
 <div class="sect1">
 <h2 id="_포인트_규정_api"><a class="anchor" href="#_포인트_규정_api"></a><a class="link" href="#_포인트_규정_api">33. 포인트 규정 API</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_규정_추가"><a class="anchor" href="#_규정_추가"></a><a class="link" href="#_규정_추가">33.1. 규정 추가</a></h3>
+<div class="sect3">
+<h4 id="_http_response_6"><a class="anchor" href="#_http_response_6"></a><a class="link" href="#_http_response_6">33.1.1. HTTP Response</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 13
 
+{"id":"test"}</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1053,7 +1129,7 @@ Content-Length: 21
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-02-29 15:01:03 +0900
+Last updated 2024-03-13 10:27:48 +0900
 </div>
 </div>
 </body>

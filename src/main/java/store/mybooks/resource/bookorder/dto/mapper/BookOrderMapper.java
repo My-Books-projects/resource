@@ -3,8 +3,9 @@ package store.mybooks.resource.bookorder.dto.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
-import store.mybooks.resource.bookorder.dto.response.BookOrderAdminModifyResponse;
+import store.mybooks.resource.bookorder.dto.response.BookOrderCreateResponse;
 import store.mybooks.resource.bookorder.dto.response.BookOrderRegisterInvoiceResponse;
+import store.mybooks.resource.bookorder.dto.response.admin.BookOrderAdminModifyResponse;
 import store.mybooks.resource.bookorder.entity.BookOrder;
 
 /**
@@ -24,4 +25,7 @@ public interface BookOrderMapper {
     BookOrderAdminModifyResponse mapToBookOrderModifyOrderStatusResponse(BookOrder bookOrder);
 
     BookOrderRegisterInvoiceResponse mapToBookOrderRegisterInvoiceResponse(BookOrder bookOrder);
+
+    @Mapping(source = "orderStatus.id", target = "orderStatus")
+    BookOrderCreateResponse mapToBookOrderCreateResponse(BookOrder bookOrder);
 }

@@ -48,4 +48,20 @@ public class PointHistory {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "point_rule_id")
     private PointRule pointRule;
+
+    /**
+     * 포인트 내역 생성자
+     *
+     * @param pointStatusCost the point status cost
+     * @param user            the user
+     * @param pointRule       the point rule
+     * @param bookOrder       the book order
+     */
+    public PointHistory(Integer pointStatusCost, User user, PointRule pointRule, BookOrder bookOrder) {
+        this.pointStatusCost = pointStatusCost;
+        this.createdDate = LocalDate.now();
+        this.user = user;
+        this.pointRule = pointRule;
+        this.bookOrder = bookOrder;
+    }
 }

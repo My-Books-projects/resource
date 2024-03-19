@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import store.mybooks.resource.book.exception.IsbnAlreadyExistsException;
+import store.mybooks.resource.bookorder.exception.BookOrderInfoNotMatchException;
 import store.mybooks.resource.category.exception.CannotDeleteParentCategoryException;
 import store.mybooks.resource.category.exception.CategoryNameAlreadyExistsException;
 import store.mybooks.resource.category.exception.CategoryNotExistsException;
@@ -107,7 +108,8 @@ public class GlobalControllerAdvice {
                 .body(exception.getMessage());
     }
 
-    @ExceptionHandler({UserAlreadyResignException.class, UserLoginFailException.class, UserAddressFullException.class})
+    @ExceptionHandler({UserAlreadyResignException.class, UserLoginFailException.class, UserAddressFullException.class,
+            BookOrderInfoNotMatchException.class})
     public ResponseEntity<String> UserException(Exception exception) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)

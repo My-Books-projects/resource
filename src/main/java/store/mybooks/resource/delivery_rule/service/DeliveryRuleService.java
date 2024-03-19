@@ -134,4 +134,20 @@ public class DeliveryRuleService {
         }
     }
 
+    /**
+     * methodName : deleteDeliveryRule<br>
+     * author : Fiat_lux<br>
+     * description : {@code name}으로 배송 규정 조회.<br>
+     * {@code name}로 배송 규칙 조회 할 수 없는 경우 {@code DeliveryRuleNotFoundException} 던짐.<br>
+     *
+     * @param name the name
+     * @return the delivery rule by name
+     * @throws DeliveryRuleNotExistsException 조회할 배송 규정이 없는 경우
+     */
+    @Transactional(readOnly = true)
+    public DeliveryRuleResponse getDeliveryRuleByName(String name) {
+        return deliveryRuleRepository.getDeliveryRuleByName(name)
+                .orElseThrow(() -> new DeliveryRuleNotExistsException("존재 하지 않는 배송 규정입니다."));
+    }
+
 }
